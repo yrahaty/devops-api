@@ -17,8 +17,8 @@ async def create_project(bitbucket_client: Any, payload: ProjectSpec):
             "description": description,
             "public": public
         }
-=            response = await bitbucket_client.post(base_endpoint, json=body)
-            _handle_response(response)
+        response = await bitbucket_client.post(endpoint, json=body)
+        _handle_response(response)
     except Exception as e:
         logger.error(f"Unexpected error creating project {key}: {str(e)}")
         raise
